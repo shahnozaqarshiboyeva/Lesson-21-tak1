@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  %wrapper_global {
+    width: 500px;
+    margin-top: 30px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+    .box1 {
+      @extend %wrapper_global;
+      %button_global {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: #019584;
+        color: #fff;
+        border: none;
+        font-size: 50px;
+      }
+      @mixin Button_mix($shadow) {
+        box-shadow: $shadow;
+      }
+      :nth-child(1) {
+        @extend %button_global;
+        @include Button_mix(1px 10px 5px rgba(112, 112, 112, 0.6));
+      }
+      :nth-child(2) {
+        @extend %button_global;
+        @include Button_mix(1px 15px 5px rgba(112, 112, 112, 0.6));
+      }
+    }
+    .box2 {
+      @extend %wrapper_global;
+      %Button_global2 {
+        padding: 7px 12px;
+        border: none;
+        background-color: white;
+        font-size: 20px;
+      }
+      :nth-child(1) {
+        @extend %Button_global2;
+      }
+      :nth-child(2) {
+        @extend %Button_global2;
+      }
+    }
+    .box3 {
+      @extend%wrapper_global;
+      %button_global3 {
+        padding: 7px 12px;
+        border: none;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-size: 20px;
+      }
+      @mixin Button_mix2($color, $bg_color) {
+        color: $color;
+        background-color: $bg_color;
+      }
+      :nth-child(1) {
+        @extend %button_global3;
+        @include Button_mix2(#019584, white);
+      }
+      :nth-child(2) {
+        @extend %button_global3;
+        @include Button_mix2(white, #019584);
+      }
+    }
+    .box4 {
+      @extend %wrapper_global;
+      %button_global4 {
+        padding: 7px 12px;
+        border: none;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-size: 18px;
+      }
+      @mixin Button_mix3($color, $bg_color, $shadow) {
+        color: $color;
+        background-color: $bg_color;
+        box-shadow: $shadow;
+      }
+      :nth-child(1) {
+        @extend %button_global4;
+        @include Button_mix3(#019584, rgb(238, 238, 238), 0 0 0);
+      }
+      :nth-child(2) {
+        @extend %button_global4;
+        @include Button_mix3(
+          white,
+          #019584,
+          0px 10px 10px rgba(112, 112, 112, 0.6)
+        )
+      }
+    }
+    .box5 {
+      @extend %wrapper_global;
+      %button_global5 {
+        padding: 7px 12px;
+        border: none;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-size: 15px;
+        color: rgb(136, 136, 136);
+      }
+      @mixin Button_mix4($bg_color) {
+        background-color: $bg_color;
+      }
+      :nth-child(1) {
+        @extend %button_global5;
+        @include Button_mix4(white);
+      }
+      :nth-child(2) {
+        @extend %button_global5;
+        @include Button_mix4(rgb(218, 218, 218));
+      }
+    }
+  }
